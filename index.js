@@ -1,8 +1,9 @@
-console.log("Hellow World")
+console.log("WELCOME TO ROCK, PAPER OR SCISSORS GAME")
 
+//simulate a random choice(either rock,paper or scissors) from Computer
 function getComputerChoice() {
     let number = Math.floor(Math.random()* 3)
-    console.log(number)
+
     if (number === 0) {
         return "rock"
     } else if (number === 1) {
@@ -10,13 +11,43 @@ function getComputerChoice() {
     } else return "scissors"
 }
 
-const computerChoice = getComputerChoice()
-console.log(computerChoice)
-
+//get user choice of either rock,paper, or scissors from UI
 function getHumanChoice() {
-    const humanChoice = prompt("rock, paper, or scissors?")
-    return humanChoice;
+    const humanChoice = prompt("rock, paper, or scissors?").toLowerCase();
+    return humanChoice
 }
 
-const humanChoice = getHumanChoice()
-console.log(humanChoice)
+//Game Logic
+
+let humanScore = 0;
+let computerScore = 0;
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+console.log(humanSelection, " < human , comp > ", computerSelection)
+
+//compares human and computer choice and declares the result of a round
+function playRound(computerChoice, humanChoice) {
+    //neither win conditions
+    if (humanChoice == computerChoice) {
+        console.log(`It's a Draw, both picked ${humanChoice}`)
+    }
+
+    //human win conditions 
+    if ((humanChoice == "rock" && computerChoice == "scissors") || 
+    (humanChoice == "paper" && computerChoice == "rock") ||
+    (humanChoice == "scissors" && computerChoice == "paper")) {
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        humanScore++;
+    }
+
+    //human lose conditions 
+     if ((humanChoice == "rock" && computerChoice == "paper") || 
+    (humanChoice == "paper" && computerChoice == "scissors") ||
+    (humanChoice == "scissors" && computerChoice == "rock")) {
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+        computerScore++;
+    }
+}
+
+playRound(humanSelection, computerSelection);
