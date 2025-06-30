@@ -29,6 +29,7 @@ function playGame() {
         const computerSelection = getComputerChoice();
         console.log(humanSelection, " < human , comp > ", computerSelection)
         playRound(humanSelection, computerSelection);
+        console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`)
     }
     
     //compares human and computer choice and declares the result of a round
