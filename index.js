@@ -33,7 +33,7 @@ function playGame() {
     }
     
     //compares human and computer choice and declares the result of a round
-    function playRound(computerChoice, humanChoice) {
+    function playRound(humanChoice, computerChoice) {
 
         //neither win conditions
         if (humanChoice == computerChoice) {
