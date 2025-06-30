@@ -12,3 +12,11 @@ function getComputerChoice() {
 
 const computerChoice = getComputerChoice()
 console.log(computerChoice)
+
+function getHumanChoice() {
+    const humanChoice = prompt("rock, paper, or scissors?")
+    return humanChoice;
+}
+
+const humanChoice = getHumanChoice()
+console.log(humanChoice)
