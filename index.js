@@ -17,6 +17,13 @@ function getHumanChoice() {
     return humanChoice
 }
 
+//returns final result after 5 games 
+function finalWinnerDeclaration(scoreHuman, scoreComputer) {
+    if (scoreHuman == scoreComputer) return `It's a DRAW as both scores are ${scoreHuman}`; 
+
+    return (scoreHuman > scoreComputer) ? `You WIN as you beat computer ${scoreHuman} times!` : `You LOSE as computer beat you ${scoreComputer} times!`
+}
+
 //Game Logic
 function playGame() {
     let humanScore = 0;
@@ -31,6 +38,9 @@ function playGame() {
         playRound(humanSelection, computerSelection);
         console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`)
     }
+
+    const winnerStatement = finalWinnerDeclaration(humanScore, computerScore);
+    console.log(winnerStatement)
     
     //compares human and computer choice and declares the result of a round
     function playRound(humanChoice, computerChoice) {
