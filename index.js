@@ -4,24 +4,14 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
+const buttons = document.querySelector(".buttons");
 
 const display = document.querySelector(".display-result")
 const score = document.querySelector(".display-score")
 
-rock.addEventListener('click', function(e){
-    playRound("rock");
-}); 
-
-paper.addEventListener('click', function(e){
-    playRound("paper");
-});
-
-scissors.addEventListener('click', function(e){
-    playRound("scissors")
-});
+buttons.addEventListener('click', function(e){
+    playRound(e.target.id);
+})
 
 //simulate a random choice(either rock,paper or scissors) from Computer
 function getComputerChoice() {
