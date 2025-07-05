@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f4f8; 
+    font-family: 'Roboto', sans-serif; 
+    color: #333; 
+}
+
+.section {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ffffff; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1a73e8; 
+    text-transform: uppercase;
+}
+
+.game-count-div {
+    font-size: 1rem;
+    color: #444;
+    background-color: #e8f0fe;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    border: 2px solid #1a73e8;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9fafb; 
+}
+
+button {
+    padding: 10px 20px;
+    font-size: .8rem;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#rock {
+    background-color: #ff6b6b;
+    color: #fff;
+}
+
+#paper {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#scissors {
+    background-color: #f4a261;
+    color: #fff;
+}
+
+.display-result {
+    font-size: 1rem;
+    color: #d81b60; 
+    background-color: #fce4ec;
+    padding: 10px 20px;
+    border-radius: 5px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.display-score {
+    font-size: 1rem;
+    color: #2e7d32; 
+    background-color: #e8f5e9; 
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.display-winner {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #e65100; 
+    background-color: #fff3e0;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
