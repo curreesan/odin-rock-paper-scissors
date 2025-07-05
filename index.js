@@ -1,4 +1,27 @@
-console.log("WELCOME TO ROCK, PAPER OR SCISSORS GAME")
+//UI 
+
+//track scores
+let humanScore = 0;
+let computerScore = 0;
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+const display = document.querySelector(".display-result")
+const score = document.querySelector(".display-score")
+
+rock.addEventListener('click', function(e){
+    playRound("rock");
+}); 
+
+paper.addEventListener('click', function(e){
+    playRound("paper");
+});
+
+scissors.addEventListener('click', function(e){
+    playRound("scissors")
+});
 
 //simulate a random choice(either rock,paper or scissors) from Computer
 function getComputerChoice() {
@@ -11,12 +34,6 @@ function getComputerChoice() {
     } else return "scissors"
 }
 
-//get user choice of either rock,paper, or scissors from UI
-function getHumanChoice() {
-    const humanChoice = prompt("rock, paper, or scissors?").toLowerCase();
-    return humanChoice
-}
-
 //returns final result after 5 games 
 function finalWinnerDeclaration(scoreHuman, scoreComputer) {
     if (scoreHuman == scoreComputer) return `It's a DRAW as both scores are ${scoreHuman}`; 
@@ -24,100 +41,42 @@ function finalWinnerDeclaration(scoreHuman, scoreComputer) {
     return (scoreHuman > scoreComputer) ? `You WIN as you beat computer ${scoreHuman} times!` : `You LOSE as computer beat you ${scoreComputer} times!`
 }
 
-
-//Game Logic
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    //simulates 5 rounds
-    for (let i = 1; i <= 5; i++) {
-        console.log(`GAME ${i}`)
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(humanSelection, " < human , comp > ", computerSelection)
-        playRound(humanSelection, computerSelection);
-        console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`)
-    }
-
-    const winnerStatement = finalWinnerDeclaration(humanScore, computerScore);
-    console.log(winnerStatement)
-    
-    //compares human and computer choice and declares the result of a round
-    function playRound(humanChoice, computerChoice) {
-
-        //neither win conditions
-        if (humanChoice == computerChoice) {
-            console.log(`It's a Draw, both picked ${humanChoice}`)
-        }
-
-        //human win conditions 
-        if ((humanChoice == "rock" && computerChoice == "scissors") || 
-        (humanChoice == "paper" && computerChoice == "rock") ||
-        (humanChoice == "scissors" && computerChoice == "paper")) {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`)
-            humanScore++;
-        }
-
-        //human lose conditions 
-        if ((humanChoice == "rock" && computerChoice == "paper") || 
-        (humanChoice == "paper" && computerChoice == "scissors") ||
-        (humanChoice == "scissors" && computerChoice == "rock")) {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
-            computerScore++;
-        }
-
-    }
+function displayResult(output) {
+    display.textContent = output;
 }
 
-//  playGame();
+function displayScore(scoreOfHuman,scoreOfComputer) {
+    score.textContent = `YOUR SCORE: ${scoreOfHuman} <> COMPUTER SCORE: ${scoreOfComputer}`
+}
 
 //1 round logic 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice) {
+        const computerChoice = getComputerChoice();
 
         //neither win conditions
         if (humanChoice == computerChoice) {
-            console.log(`It's a Draw, both picked ${humanChoice}`)
+            displayResult(`It's a Draw, both picked ${humanChoice}`)
+            displayScore(humanScore, computerScore);
         }
 
         //human win conditions 
         if ((humanChoice == "rock" && computerChoice == "scissors") || 
         (humanChoice == "paper" && computerChoice == "rock") ||
         (humanChoice == "scissors" && computerChoice == "paper")) {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+            displayResult(`You win! ${humanChoice} beats ${computerChoice}`)
             humanScore++;
+            displayScore(humanScore, computerScore);
         }
 
         //human lose conditions 
         if ((humanChoice == "rock" && computerChoice == "paper") || 
         (humanChoice == "paper" && computerChoice == "scissors") ||
         (humanChoice == "scissors" && computerChoice == "rock")) {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+            displayResult(`You lose! ${computerChoice} beats ${humanChoice}`)
             computerScore++;
+            displayScore(humanScore, computerScore);
         }
 
     }
-
-//UI 
-
-//track scores
-let humanScore = 0;
-let computerScore = 0;
-
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
-
-rock.addEventListener('click', function(e){
-    console.log(e.target);
-}) 
-
-paper.addEventListener('click', function(e){
-    console.log(e.target);
-}) 
-
-scissors.addEventListener('click', function(e){
-    console.log(e.target);
-}) 
 
 
